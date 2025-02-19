@@ -1,7 +1,7 @@
 ﻿using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 
-namespace MvcNetCoreSession.Data
+namespace MvcNetCoreSession.Helpers
 {
     public class HelperBinarySession
     {

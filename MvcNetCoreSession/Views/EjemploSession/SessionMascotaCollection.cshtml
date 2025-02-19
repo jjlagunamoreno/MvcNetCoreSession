@@ -1,0 +1,66 @@
+﻿@model IEnumerable<MvcNetCoreSession.Models.Mascota>
+
+@{
+    ViewData["Title"] = "SessionMascotaCollection";
+}
+
+<p>
+    <a asp-controller="EjemploSession"
+       asp-action="SessionMascotaCollection"
+       asp-route-accion="almacenar">
+        Almacenar Coleccion Mascotas
+    </a>
+</p>
+
+<p>
+    <a asp-controller="EjemploSession"
+       asp-action="SessionMascotaCollection"
+       asp-route-accion="mostrar">
+        Mostrar Coleccion Mascotas
+    </a>
+</p>
+
+<h1>Session Mascota Collection</h1>
+
+<h3>@ViewData["MENSAJE"]</h3>
+
+@if (Model != null)
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Nombre)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Raza)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Edad)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Nombre)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Raza)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Edad)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                        @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                        @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
